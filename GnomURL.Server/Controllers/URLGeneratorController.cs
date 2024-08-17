@@ -14,10 +14,23 @@ namespace GnomURL.Server.Controllers
             _logger = logger;
         }
 
-        [HttpPost(Name = "PostGenerateURL")]
-        public string Post()
+        [HttpGet(Name = "GetShortURL")]
+        public string GetShortURL()
         {
             return "";
         }
+
+        [HttpPost(Name = "PostGenerateURL")]
+        public string PostGenerateURL(string suggestedShortURL = "")
+        {
+            return "";
+        }
+
+        [HttpPost(Name = "DeleteURL")]
+        public string DeleteShortURL(string shortURL)
+        {
+            return "";
+        }
+
     }
 }

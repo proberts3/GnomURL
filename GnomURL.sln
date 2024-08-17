@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GnomURL.Server", "GnomURL.S
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "gnomurl.client", "gnomurl.client\gnomurl.client.esproj", "{7ADC2ED1-F396-40F9-8D98-74FE2EFE6726}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomURL.Server.Tests", "GnomURL.Server.Tests\GnomURL.Server.Tests.csproj", "{3EC56D5D-60AC-4ABE-AC73-765F43A15993}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GnomURL.Server.Tests", "GnomURL.Server.Tests\GnomURL.Server.Tests.csproj", "{3EC56D5D-60AC-4ABE-AC73-765F43A15993}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E4D4EC7C-82D4-4C8D-86FB-11C14C5401E6}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
