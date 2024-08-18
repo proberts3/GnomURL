@@ -20,9 +20,9 @@ export default function URLInfo() {
     async function getURL() {
         let url;
         try { // This is mainly to catch invalid URLs
-            url = new URL(urlData).pathname.substring(1); // remove the first '/'
+            url = new URL(urlData).pathname.split('/G/')[1]; // remove the '/G/'
+            console.log(url)
         } catch (error) {
-            console.log(error)
             setError('invalid URL');
             return;
         }
@@ -46,7 +46,7 @@ export default function URLInfo() {
         const { shortURL, longURL, count } = data;
         return <div>
             <h1>Info for: {shortURL}</h1>
-            <p>short URL: https://localhost:5173/{shortURL}</p>
+            <p>short URL: https://localhost:5173/G/{shortURL}</p>
             <p>long URL: {longURL}</p>
             <p>Times redirected: {count}</p>
 
@@ -65,7 +65,7 @@ export default function URLInfo() {
         <p>This contains info about the url that was redirected.</p>
         <p>This could be some kind of dashboard for a user.</p>
         <label>
-            URL to find
+            URL to find. This must include the https://localhost:5173/G/
             <input value={urlData} onChange={e => setURL(e.target.value)} />
         </label>
         <button onClick={getURL}> Get URL Details</button>

@@ -47,6 +47,10 @@ export default defineConfig({
             '^/URLGenerator': {
                 target,
                 secure: false
+            },
+            '^/G/*': {
+                target,
+                secure: false
             }
         },
         port: 5173,

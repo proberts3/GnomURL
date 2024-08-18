@@ -1,3 +1,7 @@
+using GnomURL.Server.Persistence;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -25,6 +29,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+
 app.MapFallbackToFile("/index.html");
+
 
 app.Run();

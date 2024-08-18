@@ -1,6 +1,5 @@
 ﻿using GnomURL.Server.Persistence;
 using Microsoft.AspNetCore.Mvc;
-using System.Xml.Linq;
 
 namespace GnomURL.Server.Controllers
 {

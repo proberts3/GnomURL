@@ -21,3 +21,4 @@ Scaffolded with https://learn.microsoft.com/en-us/visualstudio/javascript/tutori
 - I decided to only support valid URLs at this point in time. I would have had to do extra validations for foreign characters.
 - It would be a good idea to add some more client-side validators for character length.
 - You would want to add a loading state and indicator
+- I got stuck on Vite's proxy setting so I settled for having all short URL redirects be under the G/ path

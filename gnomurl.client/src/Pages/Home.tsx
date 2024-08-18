@@ -29,7 +29,7 @@ export default function Home() {
     if (data) {
         return <div className="container">
             <h1>URL Successful</h1>
-            <p>Your short url is: <a href={`https://localhost:5173/${data}`}>https://localhost:5173/{data}</a></p>
+            <p>Your short url is: <a href={`https://localhost:5173/G/${data}`} target="_blank" rel="noopener noreferrer">https://localhost:5173/G/{data}</a></p>
             <p>For the url: {long}</p>
             <hr />
             <p>Note, this only works while the development server is active and will be destroyed when turned off.</p>
