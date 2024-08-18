@@ -16,9 +16,9 @@ namespace GnomURL.Server.Controllers
         }
 
         [HttpGet(Name = "GetURL")]
-        public IActionResult GetURL(string shortURL)
+        public IActionResult GetURL([FromQuery(Name = "shortURL")] string shortURL)
         {
-            var result = InMemoryURLMap.Instance.GetURLFromShort(shortURL);
+            var result = InMemoryURLMap.Instance.GetURLFromShort(shortURL, dontCount: true);
 
             if (result != null)
             {
@@ -28,37 +28,44 @@ namespace GnomURL.Server.Controllers
             return NotFound();
         }
 
+        public class GenURLReq
+        {
+            public string longURL { get; set; }
+            public string suggestedShortURL { get; set; } = "";
+        }
+
         // TODO add URI valiation
         [HttpPost(Name = "PostGenerateURL")]
-        public IActionResult PostGenerateURL(string longURL, string suggestedShortURL = "")
+        public IActionResult PostGenerateURL([FromBody] GenURLReq urlRequest)
         {
-            var result = InMemoryURLMap.Instance.AddGnomUrl(longURL, suggestedShortURL);
+            var result = InMemoryURLMap.Instance.AddGnomUrl(urlRequest.longURL, urlRequest.suggestedShortURL);
 
             if (result != "error")
             {
-                return Ok(result);
+                return new JsonResult(result);
             }
 
             return BadRequest("This URL is taken or URL is invalid");
         }
 
-        [HttpPost(Name = "DeleteURL")]
-        public IActionResult DeleteShortURL(string shortURL)
+        public class ShortURLReq { public string shortURL { get; set; } }
+        [HttpDelete(Name = "DeleteURL")]
+        public IActionResult DeleteShortURL([FromBody] ShortURLReq req)
         {
-            InMemoryURLMap.Instance.DeleteShortURL(shortURL);
+            InMemoryURLMap.Instance.DeleteShortURL(req.shortURL);
             return Ok();
         }
 
-        [HttpGet(Name = "GetCount")]
-        public IActionResult GetCount(string shortURL)
-        {
-            var result = InMemoryURLMap.Instance.GetURLFromShort(shortURL, dontCount: true);
-            if (result != null)
-            {
-                return Ok(result.Count);
-            }
+        //[HttpGet(Name = "GetCount")]
+        //public IActionResult GetCount(string shortURL)
+        //{
+        //    var result = InMemoryURLMap.Instance.GetURLFromShort(shortURL, dontCount: true);
+        //    if (result != null)
+        //    {
+        //        return Ok(result.Count);
+        //    }
 
-            return NotFound();
-        }
+        //    return NotFound();
+        //}
     }
 }

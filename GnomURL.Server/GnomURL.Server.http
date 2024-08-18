@@ -1,6 +1,6 @@
-@GnomURL.Server_HostAddress = http://localhost:5237
+@GnomURL.Server_HostAddress = http://localhost:5173
 
-POST {{GnomURL.Server_HostAddress}}/generateURL/
+POST {{GnomURL.Server_HostAddress}}/URLGenerator/
 Accept: application/json
 
 ###

@@ -14,3 +14,10 @@ URL Shortening Service
 ## Additional Considerations
 - Valid URL (URI) RFC3986[https://datatracker.ietf.org/doc/html/rfc3986] ASCII
 - Support IRI? RFC3987[https://datatracker.ietf.org/doc/html/rfc3987] UTF-8
+
+## Dev Notes
+Scaffolded with https://learn.microsoft.com/en-us/visualstudio/javascript/tutorial-asp-net-core-with-react?view=vs-2022&viewFallbackFrom=aspnetcore-8.0
+
+- I decided to only support valid URLs at this point in time. I would have had to do extra validations for foreign characters.
+- It would be a good idea to add some more client-side validators for character length.
+- You would want to add a loading state and indicator

@@ -44,7 +44,7 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '^/getURL': {
+            '^/URLGenerator': {
                 target,
                 secure: false
             }
